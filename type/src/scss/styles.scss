@@ -1,0 +1,109 @@
+$fontColor: #0091aa;
+$colorHeading: #be4a14;
+#content  // div with id: content
+{
+    color: $fontColor;
+}
+
+body{
+    font-family: Arial;
+    background-color: lightgrey;
+}
+
+#wrapper{
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav{
+    max-width: 1200px;
+    height: 50px;
+    text-align: center;
+    margin: auto;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h2
+{
+    color: blue;
+    text-align: left;
+}
+
+nav h1{
+    color: black;
+    text-align: center;
+    margin: 0 auto;
+}
+
+h1{
+    @extend h2;
+    text-align: center;
+    margin: 0px 0px;
+}
+
+#list_bids{
+    width: 500px;
+    height: 300px;
+}
+
+td#res{
+    width: 100px;
+    background-color: aquamarine;
+}
+
+#getDiv{
+width: 32%;
+float: left;
+margin: 10px 5px;
+}
+
+th, td{
+    width: 1%;
+    border: 1px solid black;
+    text-align: center;
+    padding: 0;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+th:hover, td:hover{
+    color: #be4a14;
+    font-style: italic;
+    font-weight: bold; 
+}
+
+table{
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#bidIdInput, #postIdInput, #postItemInput, #postOfferInput, #postNameInput{
+    margin-top: 10px;
+    width: 75%;
+}
+
+input{
+    width: 100%;
+    margin-top: 2.5%;
+}
+
+table {
+    margin-top: 10px;
+}
+
+button{
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover{
+    background-color: aqua;
+}
+
+input:hover{
+    background-color: aqua;
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="utf-8">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Eksamen meassurement</title>
+  <link rel="stylesheet" type="text/css" href="bundle.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+</head>
+<nav><h1>Eksamensopgave 30-10-2018</h1></nav>
+<body>
+  <div id="wrapper">
+    <div id="getDiv">
+      <h2>List over meassurements:</h2>
+      <table id="messureTable">
+        <tr id="header">
+          <th>ID</th>
+          <th>Pressure</th>
+          <th>Humidity</th>
+          <th>Temperature</th>
+          <th>Time</th>
+        </tr>
+      </table>
+    </div> 
+
+    <div id="getDiv">
+      <h2>Single meassure:</h2>
+      <div class="input">
+        <input type="number" placeholder="Insert ID to search" id="messureIdInput">
+        <button type="button" id="getMessureButton">Get meassure</button>
+      </div><br>
+      <table id="oneMessureTable">
+        <tr id="header">
+          <th>ID</th>
+          <th>Pressure</th>
+          <th>Humidity</th>
+          <th>Temperature</th>
+          <th>Time</th>
+        </tr>
+      </table>
+    </div>
+
+    <div id="getDiv">
+      <h2>Update meassure:</h2>
+      <div>
+        <input type="text" placeholder="Insert pressure" id="postPressureInput">
+        <input type="text" placeholder="Insert humidity" id="postHumidityInput">
+        <input type="text" placeholder="Insert temperature" id="postTemperatureInput">
+        <button type="button" id="putMessureButton">Update meassurement</button>
+      </div>
+    </div>
+
+    <div id="getDiv">
+      <h2>Delete meassure:</h2>
+      <div>
+        <input type="number" placeholder="Insert id" id="deleteIdInput">
+        <button type="button" id="deleteMessureButton">Delete meassurement</button>
+      </div>
+    </div>
+    
+    <div id="getDiv">
+      <h2>New meassure:</h2>
+      <div>
+        <input type="text" placeholder="Insert pressure" id="postPressureInput">
+        <input type="text" placeholder="Insert humidity" id="postHumidityInput">
+        <input type="text" placeholder="Insert temperature" id="postTemperatureInput">
+        <button type="button" id="postMessureButton">Submit new meassurement</button>
+      </div>
+    </div>
+    </div>
+  <script src="bundle.js"></script>
+</div>
+</body>
+
+</html>
