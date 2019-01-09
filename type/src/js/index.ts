@@ -3,66 +3,74 @@
 import Axios,{} from '../../node_modules/axios/index'
 
 //const axios = require('axios');
-const url = "https://eksamen1912201820181219012533.azurewebsites.net/api/temperature";
+const url = "https://test20190109111806.azurewebsites.net/api/car";
+//const local_url ="http://localhost:3000/";
 
-const MessureTable: HTMLTableElement = <HTMLTableElement>document.getElementById("messureTable");
-const OneMessureTable: HTMLTableElement = <HTMLTableElement>document.getElementById("oneMessureTable");
+const CarTable: HTMLTableElement = <HTMLTableElement>document.getElementById("carTable");
+const OneCarTable: HTMLTableElement = <HTMLTableElement>document.getElementById("oneCarTable");
 
-const getMessureButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getMessureButton");
-const postMessureButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("postMessureButton");
-const deleteMessureButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteMessureButton");
-const putMessureButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("putMessureButton");
+const getCarButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("getCarButton");
+const postCarButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("postCarButton");
+const deleteCarButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("deleteCarButton");
+const putCarButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("putCarButton");
 
-const messureIdInput: HTMLInputElement = <HTMLInputElement>document.getElementById("messureIdInput");
+const carIdInput: HTMLInputElement = <HTMLInputElement>document.getElementById("carIdInput");
 
 const deleteIdInput: HTMLInputElement = <HTMLInputElement>document.getElementById("deleteIdInput");
-const postPressureInput: HTMLInputElement = <HTMLInputElement>document.getElementById("postPressureInput");
-const postHumidityInput: HTMLInputElement = <HTMLInputElement>document.getElementById("postHumidityInput");
-const postTemperatureInput: HTMLInputElement = <HTMLInputElement>document.getElementById("postTemperatureInput");
+const postModelInput: HTMLInputElement = <HTMLInputElement>document.getElementById("postModelInput");
+const postTypeInput: HTMLInputElement = <HTMLInputElement>document.getElementById("postTypeInput");
+const postYearInput: HTMLInputElement = <HTMLInputElement>document.getElementById("postYearInput");
+const postPriceInput: HTMLInputElement = <HTMLInputElement>document.getElementById("postPriceInput");
 
-getMessureButton.addEventListener("click", function () { GetMessureData() });
+const putModelInput: HTMLInputElement = <HTMLInputElement>document.getElementById("putModelInput");
+const putTypeInput: HTMLInputElement = <HTMLInputElement>document.getElementById("putTypeInput");
+const putYearInput: HTMLInputElement = <HTMLInputElement>document.getElementById("putYearInput");
+const putPriceInput: HTMLInputElement = <HTMLInputElement>document.getElementById("putPriceInput");
 
-interface Messure {
-    id: string;
-    pressure: string;
-    humidity: string;
-    temperature: string;
-    timestamp: string;
+getCarButton.addEventListener("click", function () { GetCarData() });
+
+interface Car {
+    carId: string;
+    carModel: string;
+    carType: string;
+    carYear: string;
+    carPrice: string;
 }
 
-//Funktion til at hente alle bud
-function PopulateAllMessureTable(): void {
-    // OneMessureTable.innerText = " "
-    if (MessureTable.rows.length > 1) {
-        for (let i = 1; i < MessureTable.rows.length; i++) {
-            MessureTable.deleteRow(i);
+//Funktion til at hente alle biler
+function AllCarTable(): void {
+    // OneCarTable.innerText = " "
+    if (CarTable.rows.length > 1) {
+        for (let i = 1; i < CarTable.rows.length; i++) {
+            CarTable.deleteRow(i);
         }
     }
     Axios.get(url)
         .then(function (response) {
-          let MessureInfo = response.data as Messure[];
 
-            MessureInfo.forEach(messure => {
-                let messureRow = document.createElement('tr');
-                MessureTable.appendChild(messureRow);
+          let CarInfo = response.data as Car[];
 
-                let elID = document.createElement('td');
-                let elPressure = document.createElement('td');
-                let elHumidity = document.createElement('td');
-                let elTemperature = document.createElement('td');
-                let elTime = document.createElement('td');
+          CarInfo.forEach(car => {
+                let carRow = document.createElement('tr');
+                CarTable.appendChild(carRow);
 
-                elID.innerHTML = messure.id;
-                elPressure.innerHTML = messure.pressure;
-                elHumidity.innerHTML = messure.humidity;
-                elTemperature.innerHTML = messure.temperature;
-                elTime.innerHTML = messure.timestamp;
+                let elId = document.createElement('td');
+                let elModel = document.createElement('td');
+                let elType = document.createElement('td');
+                let elYear = document.createElement('td');
+                let elPrice = document.createElement('td');
 
-                messureRow.appendChild(elID);
-                messureRow.appendChild(elPressure);
-                messureRow.appendChild(elHumidity);
-                messureRow.appendChild(elTemperature);
-                messureRow.appendChild(elTime);
+                elId.innerHTML = car.carId;
+                elModel.innerHTML = car.carModel;
+                elType.innerHTML = car.carType;
+                elYear.innerHTML = car.carYear;
+                elPrice.innerHTML = car.carPrice;
+
+                carRow.appendChild(elId);
+                carRow.appendChild(elModel);
+                carRow.appendChild(elType);
+                carRow.appendChild(elYear);
+                carRow.appendChild(elPrice);
             });
         })
         .catch(function (error) {
@@ -71,50 +79,52 @@ function PopulateAllMessureTable(): void {
 }
 
 //Funktion til at hente data om et givent ID
-function GetMessureData(): void {
-  if (OneMessureTable.rows.length > 1) { OneMessureTable.deleteRow(1); }
-  let id = Number(messureIdInput.value);
+function GetCarData(): void {
+  if (OneCarTable.rows.length > 1) { OneCarTable.deleteRow(1); }
+  let id = Number(carIdInput.value);
   if (id < 1) { return; }
-  Axios.get(url +"/"+ messureIdInput.value)
+  Axios.get(url +"/"+ carIdInput.value)
       .then(function (response) {
-        
-          let messureRow = document.createElement('tr');
-          OneMessureTable.appendChild(messureRow);
+
+          let carRow = document.createElement('tr');
+          OneCarTable.appendChild(carRow);
           
-          let elID = document.createElement('td');
-          let elPressure = document.createElement('td');
-          let elHumidity = document.createElement('td');
-          let elTemperature = document.createElement('td');
-          let elTime = document.createElement('td');
+          let elId = document.createElement('td');
+          let elModel = document.createElement('td');
+          let elType = document.createElement('td');
+          let elYear = document.createElement('td');
+          let elPrice = document.createElement('td');
 
-          elID.innerHTML = response.data[0].id;
-          elPressure.innerHTML = response.data[0].pressure;
-          elHumidity.innerHTML = response.data[0].humidity;
-          elTemperature.innerHTML = response.data[0].temperature;
-          elTime.innerHTML = response.data[0].timestamp;
+          elId.innerHTML = response.data[0].carId;
+          elModel.innerHTML = response.data[0].carModel;
+          elType.innerHTML = response.data[0].carType;
+          elYear.innerHTML = response.data[0].carYear;
+          elPrice.innerHTML = response.data[0].carPrice;
 
-          messureRow.appendChild(elID);
-          messureRow.appendChild(elPressure);
-          messureRow.appendChild(elHumidity);
-          messureRow.appendChild(elTemperature);
-          messureRow.appendChild(elTime);
+          carRow.appendChild(elId);
+          carRow.appendChild(elModel);
+          carRow.appendChild(elType);
+          carRow.appendChild(elYear);
+          carRow.appendChild(elPrice);
       })
       .catch(function (error) {
           console.log(error);
       })
 }
 
-//Funktion til at poste en ny måling
-postMessureButton.onclick = () => { 
-    let pre = postPressureInput.value;
-    let hum = postHumidityInput.value;
-    let temp = postTemperatureInput.value;
+//Funktion til at poste en ny bil
+postCarButton.onclick = () => { 
+    let carModel = postModelInput.value;
+    let carType = postTypeInput.value;
+    let carYear = postYearInput.value;
+    let carPrice = postPriceInput.value;
 
-    if ( pre == "" || hum == "" || temp == "") { return; }
+    if (carModel == "" || carType == "" || carYear == "" || carPrice == "") { return; }
     Axios.post(url, {
-        pressure: pre,
-        humidity: hum,
-        temperature: temp
+        carModel: carModel,
+        carType: carType,
+        carYear: carYear,
+        carPrice: carPrice
     })
         .then(function (response) {
             console.log(response)
@@ -124,19 +134,22 @@ postMessureButton.onclick = () => {
         });
 }
 
-//Funktion til at opdatere en måling
-putMessureButton.onclick = () => {
-    let pre = postPressureInput.value;
-    let hum = postHumidityInput.value;
-    let temp = postTemperatureInput.value;
+//Funktion til at opdatere en bil
+putCarButton.onclick = () => {             
+    let carModel = putModelInput.value;
+    let carType = putTypeInput.value;
+    let carYear = putYearInput.value;
+    let carPrice = putPriceInput.value;
 
-    if ( pre == "" || hum == "" || temp == "") { return; }
-    Axios.put(url+"/"+messureIdInput.value, {
-        pressure: pre,
-        humidity: hum,
-        temperature: temp
+    if (carModel == "" || carType == "" || carYear == "" || carPrice == "") { return; }
+    Axios.put(url+"/"+carIdInput.value, {
+        carModel: carModel,
+        carType: carType,
+        carYear: carYear,
+        carPrice: carPrice
     })
         .then(function (response) {
+            //console.log(response.data)
             console.log(response);
         })
         .catch(function (error) {
@@ -144,17 +157,17 @@ putMessureButton.onclick = () => {
         });
 }
 
-//Funktion til at slette en måling
-deleteMessureButton.onclick = () => {
+//Funktion til at slette en bil
+deleteCarButton.onclick = () => {
     Axios.delete(url+"/"+deleteIdInput.value)
     .then(function (response) {
         console.log(response);
-        PopulateAllMessureTable();
+        AllCarTable();
     })
     .catch(function (error) {
         console.log(error);
     });
     }
 
-PopulateAllMessureTable();
+    AllCarTable();
 

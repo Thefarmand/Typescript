@@ -3,68 +3,70 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Eksamen meassurement</title>
+  <title>Test til eksamen</title>
   <link rel="stylesheet" type="text/css" href="bundle.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 </head>
-<nav><h1>Eksamensopgave 30-10-2018</h1></nav>
+<nav><h1>Test til eksamen</h1></nav>
 <body>
   <div id="wrapper">
     <div id="getDiv">
-      <h2>List over meassurements:</h2>
-      <table id="messureTable">
+      <h2>List over cars:</h2>
+      <table id="carTable">
         <tr id="header">
           <th>ID</th>
-          <th>Pressure</th>
-          <th>Humidity</th>
-          <th>Temperature</th>
-          <th>Time</th>
+          <th>Model</th>
+          <th>Type</th>
+          <th>Year</th>
+          <th>Price</th>
         </tr>
       </table>
     </div> 
 
     <div id="getDiv">
-      <h2>Single meassure:</h2>
+      <h2>One car:</h2>
       <div class="input">
-        <input type="number" placeholder="Insert ID to search" id="messureIdInput">
-        <button type="button" id="getMessureButton">Get meassure</button>
+        <input type="number" placeholder="Insert ID to search" id="carIdInput">
+        <button type="button" id="getCarButton">Get car</button>
       </div><br>
-      <table id="oneMessureTable">
+      <table id="oneCarTable">
         <tr id="header">
           <th>ID</th>
-          <th>Pressure</th>
-          <th>Humidity</th>
-          <th>Temperature</th>
-          <th>Time</th>
+          <th>Model</th>
+          <th>Type</th>
+          <th>Year</th>
+          <th>Price</th>
         </tr>
       </table>
     </div>
 
     <div id="getDiv">
-      <h2>Update meassure:</h2>
+      <h2>Update car:</h2>
       <div>
-        <input type="text" placeholder="Insert pressure" id="postPressureInput">
-        <input type="text" placeholder="Insert humidity" id="postHumidityInput">
-        <input type="text" placeholder="Insert temperature" id="postTemperatureInput">
-        <button type="button" id="putMessureButton">Update meassurement</button>
+        <input type="text" placeholder="Insert model" id="putModelInput">
+        <input type="text" placeholder="Insert type" id="putTypeInput">
+        <input type="text" placeholder="Insert year" id="putYearInput">
+        <input type="text" placeholder="Insert price" id="putPriceInput">
+        <button type="button" id="putCarButton">Update car</button>
       </div>
     </div>
 
     <div id="getDiv">
-      <h2>Delete meassure:</h2>
+      <h2>Delete car:</h2>
       <div>
         <input type="number" placeholder="Insert id" id="deleteIdInput">
-        <button type="button" id="deleteMessureButton">Delete meassurement</button>
+        <button type="button" id="deleteCarButton">Delete car</button>
       </div>
     </div>
     
     <div id="getDiv">
-      <h2>New meassure:</h2>
+      <h2>New car:</h2>
       <div>
-        <input type="text" placeholder="Insert pressure" id="postPressureInput">
-        <input type="text" placeholder="Insert humidity" id="postHumidityInput">
-        <input type="text" placeholder="Insert temperature" id="postTemperatureInput">
-        <button type="button" id="postMessureButton">Submit new meassurement</button>
+        <input type="text" placeholder="Insert model" id="postModelInput">
+        <input type="text" placeholder="Insert type" id="postTypeInput">
+        <input type="text" placeholder="Insert year" id="postYearInput">
+        <input type="text" placeholder="Insert price" id="postPriceInput">
+        <button type="button" id="postCarButton">Submit new car</button>
       </div>
     </div>
     </div>
